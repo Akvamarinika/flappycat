@@ -17,7 +17,6 @@ function SceneGame:create()
     self.score = Score:create()
     --self.score = Score:load()
 
-
     --таблица с трубами:
     sceneGame.pipePairs = {}
 
@@ -79,12 +78,22 @@ function SceneGame:update(dt)
         pair:update(dt)     -- обновляем позицию трубы
 
         --движение труб по оси Y с увелич. счета:
-        if self.score.value >= 20 and (pair.location.x + PIPE_WIDTH > self.cat.location.x) and k == 3 then
+        if self.score.value >= 20 and (pair.location.x + PIPE_WIDTH > self.cat.location.x) and k == 5 then
             pair:up(dt)
         end
 
-        if self.score.value >= 10 and (pair.location.x + PIPE_WIDTH > self.cat.location.x) and k == 4 then
+        if self.score.value >= 20 and (pair.location.x + PIPE_WIDTH > self.cat.location.x) and k == 4 then
             pair:down(dt)
+            --pair:test(dt)
+        end
+
+        if self.score.value >= 10 and self.score.value < 20 and (pair.location.x + PIPE_WIDTH > self.cat.location.x) and k == 4 then
+
+            if self.score.value % 2 == 0 then
+                pair:up(dt)
+            else    
+                pair:down(dt)
+            end
             
             --pair:test(dt)
         end
@@ -160,6 +169,14 @@ end
 
 
 function SceneGame:draw(dt)
+    if self.score.value > 10 then
+        love.graphics.setColor(255, 255, 255, 255)
+        love.graphics.draw(background_2, -backgroundScroll, 0)
+    
+        --background = background_2
+    end
+
+
 	-- отрисовка всех труб:
     for k, pair in pairs(self.pipePairs) do
         pair:draw()

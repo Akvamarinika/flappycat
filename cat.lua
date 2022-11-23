@@ -102,7 +102,7 @@ function Cat:update(dt)
     --print(self.location.y)
 
     --выход за границы по Y:
-    if self.location.y >= 0 and self.location.y <= VIRTUAL_HEIGHT - 79 then
+    if self.location.y >= 0 and self.location.y + self.height/2 <= VIRTUAL_HEIGHT - 79 then
 
         --изменение позиции по Y:
         self.location.y = self.location.y + self.velocity.y 
@@ -111,9 +111,9 @@ function Cat:update(dt)
             self.location.y = 0
         end
 
-        if self.location.y > VIRTUAL_HEIGHT - 79 then
-            self.location.y = VIRTUAL_HEIGHT - 79
-        end
+      --  if self.location.y > VIRTUAL_HEIGHT - 79 then
+      --      self.location.y = VIRTUAL_HEIGHT - 79
+       -- end
     end
     
 end
@@ -130,8 +130,8 @@ function Cat:drawHit()
 
 function Cat:collision(pipe)
     --делаем персонажа на неск. px меньше, чем плитка:
-    if (self.location.x + 2) + (self.width - 5) >= pipe.location.x and self.location.x + 2 <= pipe.location.x + PIPE_WIDTH then
-        if (self.location.y + 2) + (self.height - 5) >= pipe.location.y and self.location.y + 2 <= pipe.location.y + PIPE_HEIGHT then
+    if (self.location.x + 2) + (self.width/2 - 5) >= pipe.location.x and self.location.x + 2 <= pipe.location.x + PIPE_WIDTH then
+        if (self.location.y + 2) + (self.height/2 - 5) >= pipe.location.y and self.location.y + 2 <= pipe.location.y + PIPE_HEIGHT then
             return true
         end
     end

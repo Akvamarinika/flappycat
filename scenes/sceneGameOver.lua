@@ -35,6 +35,7 @@ function SceneGameOver:draw(dt)
    --love.graphics.setFont(gameFont)
    --love.graphics.printf("Game Over!", 0, 64, VIRTUAL_WIDTH, 'center')
 
+
    local img = love.graphics.newImage('assets/sprites/8.png')
    love.graphics.draw(self.imgTitle, VIRTUAL_WIDTH / 2  - (self.imgTitle:getWidth()/2 * 0.7), VIRTUAL_HEIGHT / 2 - (self.imgTitle:getHeight()/2 * 0.7 + 100 ), 0, 0.7, 0.7) 
 

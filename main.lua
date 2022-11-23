@@ -25,8 +25,9 @@ VIRTUAL_HEIGHT = 576
 --флаг для остановки прокрутки объектов:
 isScrolling = true
 
-local background = love.graphics.newImage('assets/background.png')
-local backgroundScroll = 0 --прокрутка фона по оси Х, начальное значение
+background = love.graphics.newImage('assets/background.png')
+background_2 = love.graphics.newImage('assets/background_2.png')
+backgroundScroll = 0 --прокрутка фона по оси Х, начальное значение
 
 local ground = love.graphics.newImage('assets/ground.png')
 local groundScroll = 0  --прокрутка земли по оси Х, начальное значение
@@ -104,7 +105,11 @@ function love.draw(dt)
     push:start()
 
     -- рисуем фон в отрицательной точке зацикливания:
+    --love.graphics.draw(background_2, -backgroundScroll, 0) 
     love.graphics.draw(background, -backgroundScroll, 0)
+
+    r, g, b, a = love.graphics.getColor()
+
 
     sceneManager:draw(dt)
 

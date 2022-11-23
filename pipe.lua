@@ -5,7 +5,7 @@ PIPE_HEIGHT = 576 --288
 PIPE_WIDTH = 80    -- 52
 PIPE_SCROLL = 60
 
-local PIPE_IMAGE = love.graphics.newImage('assets/pipe-red.png')
+local PIPE_IMAGE = love.graphics.newImage('assets/pipe-red2.png')
 
 function Pipe:create(orientation, y) 
     local pipe = {}

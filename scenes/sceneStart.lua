@@ -1,6 +1,8 @@
 SceneStart = {}
 SceneStart.__index = SceneStart
 
+
+
 function SceneStart:create() 
 	local sceneStart = {}
     setmetatable(sceneStart, SceneStart)
@@ -32,6 +34,8 @@ function SceneStart:load()
 end
 
 function SceneStart:draw(dt)
+	love.graphics.setColor(r, g, b, a)
+
 	--love.graphics.setFont(gameFont)
 	--love.graphics.printf("Scene1", 0, 64, VIRTUAL_WIDTH, 'center')
 
