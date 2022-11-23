@@ -1,0 +1,16 @@
+{
+    "Lua.diagnostics.globals": [
+        "push",
+        "love",
+        "cat",
+        "sceneManager",
+        "scenes",
+        "sounds",
+        "isScrolling",
+        "background"
+    ],
+    "Lua.runtime.version": "LuaJIT",
+    "Lua.workspace.library": [
+        "${3rd}/love2d/library"
+    ]
+}
